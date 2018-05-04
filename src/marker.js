@@ -1,13 +1,22 @@
+import { Marker } from "mapbox-gl";
 
-let addMarker = function() {
-    const fullStackNode = document.createElement('div');
-    fullStackNode.style.width = "32px";
-    fullStackNode.style.height = "39px";
-    fullStackNode.style.backgroundImage = "url(http://i.imgur.com/WbMOfMl.png)";
+const backgroundP = {
+    activity: 'http://i.imgur.com/WbMOfMl.png',
+    hotel: 'http://i.imgur.com/D9574Cu.png',
+    restaurant: 'http://i.imgur.com/cqR6pUI.png'
+}
+
+let addMarker = function(typeP, coord) {
+    const nodeNew = document.createElement('div');
+    nodeNew.style.width = "32px";
+    nodeNew.style.height = "39px";
+    nodeNew.style.backgroundImage = `url(${backgroundP[typeP]})`;
     
-    new mapboxgl.Marker(fullStackNode)
-        .setLngLat([-74.009, 40.705])
-        .addTo(map);
+    // new mapboxgl.Marker(fullStackNode)
+    //     .setLngLat([-74.009, 40.705])
+    //     .addTo(map);
+
+     new mapboxgl.Marker(nodeNew).setLngLat(coord).addTo(map);
 }
 
 module.exports = addMarker;

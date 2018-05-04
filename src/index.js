@@ -10,4 +10,4 @@ const map = new mapboxgl.Map({
     style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
 
-marker();
+marker.addMarker('restaurant', [-73, 40]);
