@@ -93,17 +93,6 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -111,7 +100,7 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\nconst marker = __webpack_require__(/*! ./marker.js */ \"./src/marker.js\")\n\nmapboxgl.accessToken = 'pk.eyJ1IjoiamZlaW5iZXJnIiwiYSI6ImNqZ3Mzd2ZodDA1OGMyeW1oNWg2OTU5d3QifQ.4ssY9ZSYcwnWqvVcX_GQJw';\n\nconst map = new mapboxgl.Map({\n    container: \"map\",\n    center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago\n    zoom: 12, // starting zoom\n    style: \"mapbox://styles/mapbox/streets-v10\" // mapbox has lots of different map styles available.\n});\n\nmarker.addMarker('restaurant', [-73, 40]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\nconst marker = __webpack_require__(/*! ./marker.js */ \"./src/marker.js\")\n\nmapboxgl.accessToken = 'pk.eyJ1IjoiamZlaW5iZXJnIiwiYSI6ImNqZ3Mzd2ZodDA1OGMyeW1oNWg2OTU5d3QifQ.4ssY9ZSYcwnWqvVcX_GQJw';\n\nconst map = new mapboxgl.Map({\n    container: \"map\",\n    center: [-74.009, 40.705], // FullStack NY coordinates; alternatively, use [-87.6354, 41.8885] for Chicago\n    zoom: 12, // starting zoom\n    style: \"mapbox://styles/mapbox/streets-v10\" // mapbox has lots of different map styles available.\n});\n\n\nmarker.addMarker(\"hotel\", [-74.009151, 40.705086]).addTo(map);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -119,11 +108,10 @@ eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/map
 /*!***********************!*\
   !*** ./src/marker.js ***!
   \***********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\n/* harmony import */ var mapbox_gl__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mapbox_gl__WEBPACK_IMPORTED_MODULE_0__);\n\n\nconst backgroundP = {\n    activity: 'http://i.imgur.com/WbMOfMl.png',\n    hotel: 'http://i.imgur.com/D9574Cu.png',\n    restaurant: 'http://i.imgur.com/cqR6pUI.png'\n}\n\nlet addMarker = function(typeP, coord) {\n    const nodeNew = document.createElement('div');\n    nodeNew.style.width = \"32px\";\n    nodeNew.style.height = \"39px\";\n    nodeNew.style.backgroundImage = `url(${backgroundP[typeP]})`;\n    \n    // new mapboxgl.Marker(fullStackNode)\n    //     .setLngLat([-74.009, 40.705])\n    //     .addTo(map);\n\n     new mapboxgl.Marker(nodeNew).setLngLat(coord).addTo(map);\n}\n\nmodule.exports = addMarker;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/marker.js?");
+eval("const mapboxgl = __webpack_require__(/*! mapbox-gl */ \"./node_modules/mapbox-gl/dist/mapbox-gl.js\");\n\nconst backgroundP = {\n    activity: 'http://i.imgur.com/WbMOfMl.png',\n    hotel: 'http://i.imgur.com/D9574Cu.png',\n    restaurant: 'http://i.imgur.com/cqR6pUI.png'\n}\n\nlet addMarker = function(typeP, coord) {\n    const nodeNew = document.createElement('div');\n    nodeNew.style.width = \"32px\";\n    nodeNew.style.height = \"39px\";\n    nodeNew.style.backgroundImage = `url(${backgroundP[typeP]})`;\n    \n    // new mapboxgl.Marker(fullStackNode)\n    //     .setLngLat([-74.009, 40.705])\n    //     .addTo(map);\n\n    return new mapboxgl.Marker(nodeNew).setLngLat(coord);\n}\n\nmodule.exports = {addMarker};\n\n//# sourceURL=webpack:///./src/marker.js?");
 
 /***/ })
 

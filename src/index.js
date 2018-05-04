@@ -10,4 +10,5 @@ const map = new mapboxgl.Map({
     style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
 
-marker.addMarker('restaurant', [-73, 40]);
+
+marker.addMarker("hotel", [-74.009151, 40.705086]).addTo(map);

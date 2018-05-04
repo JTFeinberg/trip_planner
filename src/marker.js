@@ -1,4 +1,4 @@
-import { Marker } from "mapbox-gl";
+const mapboxgl = require("mapbox-gl");
 
 const backgroundP = {
     activity: 'http://i.imgur.com/WbMOfMl.png',
@@ -16,7 +16,7 @@ let addMarker = function(typeP, coord) {
     //     .setLngLat([-74.009, 40.705])
     //     .addTo(map);
 
-     new mapboxgl.Marker(nodeNew).setLngLat(coord).addTo(map);
+    return new mapboxgl.Marker(nodeNew).setLngLat(coord);
 }
 
-module.exports = addMarker;
+module.exports = {addMarker};
